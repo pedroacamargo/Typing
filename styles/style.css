@@ -28,7 +28,7 @@ body {
 
 #game-container {
     position: relative;
-    width: 40%;
+    width: 80%;
     height: 30%;
     display: flex;
     justify-content: center;
