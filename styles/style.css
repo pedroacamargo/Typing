@@ -26,22 +26,137 @@ body {
 }
 
 #game-container {
-    position: absolute;
-    width: 80%;
-    height: 80%;
+    position: relative;
+    width: 40%;
+    height: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden
+}
+
+.strip1 {
+    position: absolute;
+    top: 0;
+    left: -100px;
+    background-color: yellow;
+    height: 10px;
+    width: 100px;
+    border-radius: 0px 20px 20px 0px;
+    animation: slide1 .2s 1;
+}
+
+.strip2 {
+    position: absolute;
+    top: -100px;
+    right: 0;
+    background-color: yellow;
+    height: 100px;
+    width: 10px;
+    border-radius: 0px 0px 20px 20px;
+    animation: slide2 .2s 1;
+    animation-delay: .15s;
+}
+.strip3 {
+    position: absolute;
+    bottom: 0;
+    right: -100px;
+    background-color: yellow;
+    height: 10px;
+    width: 100px;
+    border-radius: 20px 0px 0px 20px;
+    animation: slide3 .2s 1;
+    animation-delay: .3s;
+}
+
+.strip4 {
+    position: absolute;
+    bottom: -100px;
+    left: 0;
+    background-color: yellow;
+    height: 100px;
+    width: 10px;
+    border-radius: 20px 20px 0px 0px;
+    animation: slide4 .2s 1;
+    animation-delay: .45s;
+}
+
+@keyframes slide1 {
+    from {
+        left: -100px;
+    }
+
+    to {
+        left: 100%;
+    } 
+}
+
+@keyframes slide2 {
+    from {
+        top: -100px;
+    }
+
+    to {
+        top: 100%;
+    } 
+}
+@keyframes slide3 {
+    from {
+        right: -100px;
+    }
+
+    to {
+        right: 100%;
+    } 
+}
+@keyframes slide4 {
+    from {
+        top: 100%;
+    }
+
+    to {
+        top: -100px;
+    } 
 }
 
 #words {
-    width: 30%;
-    height: 20%;
+    position: absolute;
+    width: 95%;
+    height: 90%;
+    left: 0px;
+    top: 0px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     color: white;
+    background-color: black;
+}
+
+.shake {
+    animation-name: shake;
+    animation-duration: .2s;
+}
+
+@keyframes shake {
+    0% {
+        left: 10px;
+    }
+    20% {
+        left: -10px;
+    }
+    40% {
+        left: 10px;
+    }
+    60% {
+        left: -10px;
+    }
+    90% {
+        left: 10px;
+    }
+    100% {
+        left: 0;
+    }
 }
 
 .letter {
@@ -49,3 +164,4 @@ body {
     font-size: 3em;
     letter-spacing: 6px;
 }
+
