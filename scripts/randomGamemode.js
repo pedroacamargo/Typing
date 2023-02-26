@@ -1,7 +1,6 @@
 // array with the words that will be drawed
-let wordsDataBase = ["Pikachu","Nerd","Corno","Conspiração","Minion","Incrível","Independentemente","Garrafa","Água","Teclado","Escrever","Caneta","Oitavo","Bom","Banco","Patifaria","Caso","Paralelepípedo"]
-
-
+let wordsDataBase = ["Pikachu","Nerd","Corno","Conspiração","Minion","Incrível","Independentemente","Garrafa","Água","Teclado","Escrever","Caneta","Oitavo","Bom","Banco","Patifaria","Caso","Paralelepípedo","Espelho","Mouse","Biscoito","Uivo","Chapéuzão","Construção"]
+const nextWordPlace = document.getElementById("nextWord")
 const stripsContainer = document.getElementById("strip-container")
 const wordsPlace = document.getElementById("words")
 const word = document.getElementById("words")
@@ -9,23 +8,30 @@ const strip1 = document.getElementById("strip1")
 const strip2 = document.getElementById("strip2")
 const strip3 = document.getElementById("strip3")
 const strip4 = document.getElementById("strip4")
+
 let wordValue = word.innerHTML
 let letters = -1
-let lettersTyped = -1
+let lettersTyped = 0
 let actualLetter = 0
-console.log(document.getElementById("letter8")) // null
+let first = true // if it's the first word displaying
+let nextWord
+let actualWord
+
+let rand = () => {
+    return Math.floor(Math.random() * (wordsDataBase.length - 1))
+}
 
 function createWord() {
 
     // create a randomization to choose a random word in DB
-    let randomNumberForDataBase = Math.round(Math.random() * wordsDataBase.length - 1)
+    let randomNumberForDataBase = rand()
+    let randomNumberForDataBase2 = rand()
 
     // just because length - 1 can give (-1) and doesn't exist a -1 index in array
     if (randomNumberForDataBase == -1) {
         randomNumberForDataBase = 0
+        randomNumberForDataBase2 = 0
     }
-    console.log(randomNumberForDataBase)
-
 
     // if already exists any word in the words container, it will remove it
     if (wordsPlace.innerHTML.length > 0) {
@@ -52,11 +58,32 @@ function createWord() {
     stripsContainer.appendChild(strip4)
 
     wordsPlace.className = ""
+    
+    
+    if (first == true) {
+        nextWord = wordsDataBase[randomNumberForDataBase]
+        actualWord = wordsDataBase[randomNumberForDataBase2]
+        first = false
+        nextWordPlace.innerText = nextWord
+        wordToHTML(actualWord)
+    } else {
+        actualWord = nextWord
+        nextWord = wordsDataBase[randomNumberForDataBase2]
+        nextWordPlace.innerText = nextWord
+    }
 
-    // will give the length of the words inside the array in pos i
-    for (let j = 0;j < wordsDataBase[randomNumberForDataBase].length; j++) {
+    return actualWord
+}
+    
+    
 
-        let letter = wordsDataBase[randomNumberForDataBase].charAt(j)
+// the whole word in html 
+// will give the length of the words inside the array in pos i
+// This function will put the word itself in the innerHTML
+function wordToHTML(actualWord) {
+    for (let j = 0;j <= actualWord.length; j++) {
+
+        let letter = actualWord.charAt(j)
         let wordN = document.createElement("span")
         wordN.classList = `letter-${j} letter`
         wordN.id = "letter" + j
@@ -66,18 +93,14 @@ function createWord() {
 
         letters++
     }
-
-    
 }
-
-
 
 
 // when type any keyword from ur keyboard
 function type(event) {
     let key = event.key
-    console.log(key)
     wordsPlace.classList.remove("shake")
+
     
 
     let letter = document.getElementById("letter" + actualLetter)
@@ -105,9 +128,11 @@ function type(event) {
 
     // if the word is completed, reset everything
     if (lettersTyped == letters) {
-        createWord()
+        let actualWord2 = createWord()
         actualLetter = 0
-        lettersTyped = -1
+        lettersTyped = 0
+        wordToHTML(actualWord2)
+        
 
         // reset the animation when word is loaded
         document.getElementById("strip1").remove()
@@ -115,6 +140,4 @@ function type(event) {
         document.getElementById("strip3").remove()
         document.getElementById("strip4").remove()
     }
-
-    console.log(key)
 }
