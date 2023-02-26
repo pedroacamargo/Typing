@@ -44,6 +44,7 @@ body {
     width: 100px;
     border-radius: 0px 20px 20px 0px;
     animation: slide1 .2s 1;
+    z-index: 2;
 }
 
 .strip2 {
@@ -79,6 +80,7 @@ body {
     border-radius: 20px 20px 0px 0px;
     animation: slide4 .2s 1;
     animation-delay: .45s;
+    z-index: 2;
 }
 
 @keyframes slide1 {
