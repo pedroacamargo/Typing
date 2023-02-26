@@ -1,5 +1,8 @@
 // array with the words that will be drawed
 let wordsDataBase = ["Pikachu","Nerd","Corno","Conspiração","Minion","Incrível","Independentemente","Garrafa","Água","Teclado","Escrever","Caneta","Oitavo","Bom","Banco","Patifaria","Caso","Paralelepípedo","Espelho","Mouse","Biscoito","Uivo","Chapéuzão","Construção"]
+
+const wordCompleted = new Audio("../multimedia/wordCompleted.mp3")
+
 const nextWordPlace = document.getElementById("nextWord")
 const stripsContainer = document.getElementById("strip-container")
 const wordsPlace = document.getElementById("words")
@@ -16,12 +19,19 @@ let actualLetter = 0
 let first = true // if it's the first word displaying
 let nextWord
 let actualWord
+let sound = true
+
+
 
 let rand = () => {
     return Math.floor(Math.random() * (wordsDataBase.length - 1))
 }
 
 function createWord() {
+    if (sound == true) {
+        wordCompleted.load()
+        wordCompleted.play()
+    }
 
     // create a randomization to choose a random word in DB
     let randomNumberForDataBase = rand()
@@ -98,6 +108,7 @@ function wordToHTML(actualWord) {
 
 // when type any keyword from ur keyboard
 function type(event) {
+    
     let key = event.key
     wordsPlace.classList.remove("shake")
 
@@ -128,6 +139,8 @@ function type(event) {
 
     // if the word is completed, reset everything
     if (lettersTyped == letters) {
+        wordCompleted.load()
+        wordCompleted.play()
         let actualWord2 = createWord()
         actualLetter = 0
         lettersTyped = 0
