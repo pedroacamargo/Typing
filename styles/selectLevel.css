@@ -18,6 +18,8 @@ h1 {
     font-size: 3em;
     font-family: var(--font1);
     color: white;
+    cursor: default;
+    margin-bottom: 50px;
 }
 
 h1::after {
@@ -35,5 +37,66 @@ h1::after {
 
     to {
         color: black;
+    }
+}
+
+.start {
+    color: white;
+    font-family: var(--font1);
+    margin-top: 50px;
+    cursor: default;
+    
+}
+
+.blink {
+    animation-duration: .8s;
+    animation-name: blink;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.menu {
+    width: 20vw;
+    height: 50vh;
+    border-radius: 10px;
+    border: 1px solid rgb(40, 36, 36);
+    display: none;
+}
+
+.option {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.option img {
+    position: relative;
+    left: 0;
+    margin-right: 5px;
+    width: 10px;
+    transform: rotate(-90deg);
+}
+
+.move {
+    animation-name: move;
+    animation-duration: .4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.margin0 {
+    margin: 0;
+    text-decoration: none;
+}
+
+@keyframes move {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: -5px;
     }
 }
