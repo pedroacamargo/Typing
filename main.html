@@ -13,6 +13,11 @@
     <title>Typing game</title>
 </head>
 <body onkeydown="type(event)" onload="createWord()">
+    <div class="time">
+        <span id="minutes" class="minutes"></span>
+        :
+        <span id="seconds" class="seconds"></span>
+    </div>
     <div id="main-container">
         <div id="game-container">
             <div id="strip-container">
@@ -42,5 +47,6 @@
     </div>
 
     <script src="scripts/randomGamemode.js"></script>
+    <script src="scripts/timer.js"></script>
 </body>
 </html>

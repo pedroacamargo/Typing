@@ -5,4 +5,7 @@
         font-size: 1.5em;
     }
     
+    .minutes, .seconds {
+        font-size: 1.4em;
+    }
 }
