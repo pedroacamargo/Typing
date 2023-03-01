@@ -1,5 +1,5 @@
 // array with the words that will be drawed
-let wordsDataBase = ["Pikachu","Nerd","Corno","Conspiração","Minion","Incrível","Independentemente","Garrafa","Água","Teclado","Escrever","Caneta","Oitavo","Bom","Banco","Patifaria","Caso","Paralelepípedo","Espelho","Mouse","Biscoito","Uivo","Chapéuzão","Construção"]
+let wordsDataBase = ["Pikachu","Nerd","Corno","Conspiração","Minion","Incrível","Independentemente","Garrafa","Água","Teclado","Escrever","Caneta","Oitavo","Bom","Banco","Patifaria","Caso","Paralelepípedo","Espelho","Mouse","Biscoito","Uivo","Chapéuzão","Construção","Moniz","PC","Computador","Boi","Compatriota","Xavier","Zimbábwe",""]
 
 const wordCompleted = new Audio("../multimedia/wordCompleted.mp3")
 
