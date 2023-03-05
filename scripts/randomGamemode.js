@@ -22,16 +22,12 @@ let actualWord
 let sound = true
 
 
-
 let rand = () => {
     return Math.floor(Math.random() * (wordsDataBase.length - 1))
 }
 
 function createWord() {
-    if (sound == true) {
-        wordCompleted.load()
-        wordCompleted.play()
-    }
+    
 
     // create a randomization to choose a random word in DB
     let randomNumberForDataBase = rand()
@@ -118,6 +114,7 @@ function type(event) {
     if (key == letter.innerHTML) {
         letter.style.color = 'green'
         lettersTyped++
+        typesPerSecond.increaseTypes()
 
         // if typed the whole word, finish the next for loop and print another word to type
         if (actualLetter == letters) {
@@ -139,8 +136,9 @@ function type(event) {
 
     // if the word is completed, reset everything
     if (lettersTyped == letters) {
-        wordCompleted.load()
-        wordCompleted.play()
+        if (sound == true) {
+            wordCompleted.play()
+        }
         let actualWord2 = createWord()
         actualLetter = 0
         lettersTyped = 0

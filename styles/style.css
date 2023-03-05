@@ -185,8 +185,21 @@ body {
     letter-spacing: 6px;
 }
 
+.TPM {
+    color: white;
+    font-family: var(--font1);
+    position: absolute;
+    left: 44vw;
+    margin-top: 110px;
+}
+
+#tpm {
+    color: white;
+    font-family: var(--font1);
+}
+
 .next-word-container {
-    margin-left: 30%;
+    margin-left: 40%;
 }
 
 .next-word {

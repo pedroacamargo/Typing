@@ -4,7 +4,7 @@ const seconds = document.getElementById("seconds")
 class Timer {
     constructor() {
         this.minutes = 0
-        this.seconds = 3
+        this.seconds = 59
         this.running = true
     }
 
@@ -27,14 +27,34 @@ class Timer {
     start() {
         if (this.running) {
             this.seconds--
-            
-            if (this.minutes == 0 && this.seconds == 1) {
-                this.running = false
+            typesPerSecond.secondsPassed++
+
+            // if passed 60 seconds, the array "average" will be incremented by the actual types
+            if (typesPerSecond.secondsPassed == 60) {
+                typesPerSecond.doAverage()
+                typesPerSecond.secondsPassed = 0
             }
             
             if (this.seconds == 0) {
-                this.minutes--
-                this.seconds = 59
+                if (this.minutes == 0 && this.seconds == 0) {
+                    
+                    this.running = false
+
+                    // if the timer ends and the seconds passed was below 60,by default, will be added the amount of seconds left to make the final average.
+                    if (typesPerSecond.secondsPassed < 60) {
+                        typesPerSecond.types += (60 - typesPerSecond.secondsPassed)
+                    }
+                    
+                    
+
+                    typesPerSecond.doAverage()
+                    typesPerSecond.printTPM()
+                    this.minutes = 0
+                    this.seconds = 0
+                } else {
+                    this.seconds = 59
+                    this.minutes--
+                }
             }
 
         } else {
@@ -48,7 +68,7 @@ let timer = new Timer()
 timer.update()
 
 setInterval( () => {
-    timer.update()
     timer.start()
+    timer.update()
 },1000)
 
