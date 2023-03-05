@@ -56,7 +56,7 @@ function showMenu(event) {
             case "ARROWUP":
                 if (selected == 1) {
                     selected = 1
-             
+                } else {
                     selected -= 1
                     
                     let opt = document.getElementById("img" + selected)
