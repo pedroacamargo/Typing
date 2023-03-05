@@ -13,13 +13,10 @@
     <title>Typing game</title>
 </head>
 <body onkeydown="type(event)" onload="createWord()">
-    <div class="time">
+    <div class="time" id="timer">
         <span id="minutes" class="minutes"></span>
         :
         <span id="seconds" class="seconds"></span>
-    </div>
-    <div class="TPM">
-        Types per Minute: <span id="tpm">available in the end</span>
     </div>
     <div id="main-container">
         <div id="game-container">
@@ -45,6 +42,20 @@
         <div class="next-word next-word-container">
             Next word: 
             <span id="nextWord" class="next-word">Palavra</span>
+        </div>
+    </div>
+
+
+    <!-- End game -->
+    <div id="endGameContainer" class="end-game">
+        <h2>Game Over</h2>
+        <div class="TPM">
+            Types per Minute: <span id="tpm">available in the end</span>
+        </div>
+
+        <div class="menu-btn-container">
+            <button class="button" onclick="window.location.replace(window.location.pathname + window.location.search + window.location.hash)">Play Again</button>
+            <a class="button" href="selectLevel.html">Back to Menu</a>
         </div>
     </div>
 

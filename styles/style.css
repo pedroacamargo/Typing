@@ -188,9 +188,7 @@ body {
 .TPM {
     color: white;
     font-family: var(--font1);
-    position: absolute;
-    left: 44vw;
-    margin-top: 110px;
+
 }
 
 #tpm {
@@ -210,4 +208,46 @@ body {
 .next-word span {
     color: yellow;
     font-weight: bold;
+}
+
+.end-game {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% ,-50%);
+    padding: 0 50px;
+    background-color: black;
+    border: 1px solid rgba(128, 128, 128, 0.577);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.607);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.end-game h2 {
+    font-family: var(--font1);
+    color: white;
+    padding: 20px;
+    padding-bottom: 30px;
+    font-size: 2.5em;
+}
+
+.end-game div .button {
+    background-color: black;
+    color: white;
+    border: 1px solid grey;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: var(--font1);
+    transition: 1s;
+    text-decoration: none;
+}
+
+.end-game div .button:hover {
+    background-color: rgba(255, 255, 255, 0.76);
+    color: black;
 }

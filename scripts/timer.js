@@ -1,5 +1,8 @@
 const minutes = document.getElementById("minutes")
 const seconds = document.getElementById("seconds")
+const gameOver = document.getElementById("endGameContainer")
+const main = document.getElementById("main-container")
+const timerContainer = document.getElementById("timer")
 
 class Timer {
     constructor() {
@@ -51,6 +54,9 @@ class Timer {
                     typesPerSecond.printTPM()
                     this.minutes = 0
                     this.seconds = 0
+                    gameOver.style.display = "flex"
+                    main.style.display = "none"
+                    timerContainer.style.display = "none"
                 } else {
                     this.seconds = 59
                     this.minutes--
