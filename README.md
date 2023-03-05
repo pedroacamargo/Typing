@@ -1,2 +1,3 @@
 # Typing
- This game is under construction, please wait for the next releases. However, u can check the pre-realease version at <a href="https://pedroacamargo.github.io/Typing-game/selectLevel.html">Typing Game<a>
+
+<p>This game is under development. However, you still can check your<code>TpM</code> (Types per Minute) in just a minute. If you'd like to try the game in a pre-release version, visit <a href="https://pedroacamargo.github.io/Typing-game/selectLevel.html">Typing Game<a>. You'll need to select your level, which needs to be the "random" mode, because the other gamemode isn't available yet. A lot of new features will be developed, such as ranking to compare your TpM with your friends, statistics (which letters/words are you making more mistakes, TpM, TpS, amount of letters typed, etc), a new gamemode that instead random words appearing in you screen, will be normal day-to-day phrases.</p>
