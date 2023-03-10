@@ -1,6 +1,6 @@
 // array with the words that will be drawed
-let wordsDataBase = ["Pikachu","Nerd","Corno","Conspiração","Minion","Incrível","Independentemente","Garrafa","Água","Teclado","Escrever","Caneta","Oitavo","Bom","Banco","Patifaria","Caso","Paralelepípedo","Espelho","Mouse","Biscoito","Uivo","Chapéuzão","Construção","Moniz","PC","Computador","Boi","Compatriota","Xavier","Zimbábwe","Celular"]
-
+//let wordsDataBase = ["Pikachu","Nerd","Corno","Conspiração","Minion","Incrível","Independentemente","Garrafa","Água","Teclado","Escrever","Caneta","Oitavo","Bom","Banco","Patifaria","Caso","Paralelepípedo","Espelho","Mouse","Biscoito","Uivo","Chapéuzão","Construção","Moniz","PC","Computador","Boi","Compatriota","Xavier","Zimbábwe","Celular"]
+let wordsDataBase = ["ããolaa","iííííííooooo","ãííãoi"]
 const wordCompleted = new Audio("../multimedia/wordCompleted.mp3")
 
 const nextWordPlace = document.getElementById("nextWord")
@@ -86,18 +86,20 @@ function createWord() {
 // the whole word in html 
 // will give the length of the words inside the array in pos i
 // This function will put the word itself in the innerHTML
+let letterID
 function wordToHTML(actualWord) {
     for (let j = 0;j <= actualWord.length; j++) {
+  
+      let letter = actualWord.charAt(j)
 
-        let letter = actualWord.charAt(j)
-        let wordN = document.createElement("span")
-        wordN.classList = `letter-${j} letter`
-        wordN.id = "letter" + j
-        wordN.innerHTML = letter
+      let wordN = document.createElement("span")
+      wordN.classList = `letter-${j} letter`
+      wordN.id = "letter" + j
+      wordN.innerHTML = letter
 
-        wordsPlace.appendChild(wordN)
+      wordsPlace.appendChild(wordN)
 
-        letters++
+      letters++
     }
 }
 
@@ -107,31 +109,64 @@ function type(event) {
     
     let key = event.key
     wordsPlace.classList.remove("shake")
-
-    
-
+    // this variable will give the user log, telling the user OS
+    let user = navigator.userAgent
+    let accents = "áãâíõé"
     let letter = document.getElementById("letter" + actualLetter)
-    if (key == letter.innerHTML) {
-        letter.style.color = 'green'
-        lettersTyped++
-        typesPerSecond.increaseTypes()
+    let linuxNextLetter
 
-        // if typed the whole word, finish the next for loop and print another word to type
-        if (actualLetter == letters) {
-            actualLetter = -1
-        }
-
-        actualLetter++
-    } else {
-        wordsPlace.classList.add("shake")
-        if (key == "CapsLock" || key == "Shift" || key == "Dead") {
-            letter.style.color = 'white'
-            wordsPlace.classList.remove("shake")
+    // code to fix the problem with accents in Linux OS
+    if (user.search("Linux") !== -1) {
+      for (let i = 0; i < accents.length; i++) {
+        if (accents.charAt(i) == letter.innerHTML) { // if the letter is a portuguese letter with accent
+          if (key == "Dead") {
+            linuxNextLetter = accents.charAt(i)
+            if (linuxNextLetter == "á" || linuxNextLetter == "ã" || linuxNextLetter == "â") {
+              linuxNextLetter = "a"
+            } else if (linuxNextLetter == "í") {
+              linuxNextLetter = "i"
+            }
+          } 
         } else {
-            letter.style.color = 'red'
+            if (key == letter.innerHTML || key == linuxNextLetter) { // if it's not an accent
+              letter.style.color = "green"
+              lettersTyped++
+              typesPerSecond.increaseTypes()
+              if (actualLetter == letters) {
+                actualLetter = -1
+              }
+              actualLetter++
+            } else {
+              wordsPlace.classList.add("shake")
+              if (key == "CapsLock" || key == "Shift" || key == "Alt") {
+                letter.style.color = "white"
+                wordsPlace.classList.remove("shake")
+              } else {
+                letter.style.color = "red"  
+              }
+            }
+          }
+        }
+      } else { // others OS besides Linux
+        if (key == letter.innerHTML) {
+            letter.style.color = 'green'
+            lettersTyped++
+            typesPerSecond.increaseTypes()
+            // if typed the whole word, finish the next for loop and print another word to type
+            if (actualLetter == letters) {
+               actualLetter = -1
+            }
+            actualLetter++
+        } else {
+            wordsPlace.classList.add("shake")
+            if (key == "CapsLock" || key == "Shift" || key == "Dead") {
+                letter.style.color = 'white'
+                wordsPlace.classList.remove("shake")
+            } else {
+                letter.style.color = 'red'
+            }
         }
     }
-
     
 
     // if the word is completed, reset everything

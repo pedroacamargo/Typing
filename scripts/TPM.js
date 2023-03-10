@@ -13,12 +13,10 @@ class TPM {
 
     increaseTypes() {
         this.types++
-        console.log(this.types)
     }
 
     doAverage() {
         average.push(this.types)
-        console.log(average)
     }
 
     printTPM() {
