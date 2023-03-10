@@ -1,6 +1,6 @@
 // array with the words that will be drawed
-//let wordsDataBase = ["Pikachu","Nerd","Corno","Conspiração","Minion","Incrível","Independentemente","Garrafa","Água","Teclado","Escrever","Caneta","Oitavo","Bom","Banco","Patifaria","Caso","Paralelepípedo","Espelho","Mouse","Biscoito","Uivo","Chapéuzão","Construção","Moniz","PC","Computador","Boi","Compatriota","Xavier","Zimbábwe","Celular"]
-let wordsDataBase = ["ããolaa","iííííííooooo","ãííãoi"]
+let wordsDataBase = ["Brasil","Portugal","França","Corcunda","bruh","Boas","Constitucional","Abracadabra","Coração","Amor","Ursinho","Pikachu","Nerd","Corno","Conspiração","Minion","Incrível","Independentemente","Garrafa","Água","Teclado","Escrever","Caneta","Oitavo","Bom","Banco","Patifaria","Caso","Paralelepípedo","Espelho","Mouse","Biscoito","Uivo","Chapéuzão","Construção","Moniz","PC","Computador","Boi","Compatriota","Xavier","Zimbábwe","Celular"]
+
 const wordCompleted = new Audio("../multimedia/wordCompleted.mp3")
 
 const nextWordPlace = document.getElementById("nextWord")
@@ -80,8 +80,6 @@ function createWord() {
 
     return actualWord
 }
-    
-    
 
 // the whole word in html 
 // will give the length of the words inside the array in pos i
@@ -103,7 +101,8 @@ function wordToHTML(actualWord) {
     }
 }
 
-
+let linuxNextLetter
+let accents = "Áâíéáõã"
 // when type any keyword from ur keyboard
 function type(event) {
     
@@ -111,24 +110,29 @@ function type(event) {
     wordsPlace.classList.remove("shake")
     // this variable will give the user log, telling the user OS
     let user = navigator.userAgent
-    let accents = "áãâíõé"
     let letter = document.getElementById("letter" + actualLetter)
-    let linuxNextLetter
 
     // code to fix the problem with accents in Linux OS
     if (user.search("Linux") !== -1) {
-      for (let i = 0; i < accents.length; i++) {
-        if (accents.charAt(i) == letter.innerHTML) { // if the letter is a portuguese letter with accent
+
+        // if the letter is a portuguese letter with accent
           if (key == "Dead") {
-            linuxNextLetter = accents.charAt(i)
+            for (let i = 0; i< accents.length; i++) {
+              if(letter.innerHTML == accents.charAt(i)) {linuxNextLetter = accents.charAt(actualLetter)}
+            }
+            console.log("linuxNextLetter -> " + linuxNextLetter)
             if (linuxNextLetter == "á" || linuxNextLetter == "ã" || linuxNextLetter == "â") {
               linuxNextLetter = "a"
+            } else if (linuxNextLetter == "Á") {
+              linuxNextLetter = "A"
             } else if (linuxNextLetter == "í") {
               linuxNextLetter = "i"
+            } else if (linuxNextLetter == "é") {
+              linuxNextLetter = "e"
             }
-          } 
-        } else {
-            if (key == letter.innerHTML || key == linuxNextLetter) { // if it's not an accent
+            return 0;
+          }
+          if (key == letter.innerHTML || linuxNextLetter == key) { // if it's not an accent
               letter.style.color = "green"
               lettersTyped++
               typesPerSecond.increaseTypes()
@@ -136,7 +140,8 @@ function type(event) {
                 actualLetter = -1
               }
               actualLetter++
-            } else {
+              linuxNextLetter = ""
+          } else {
               wordsPlace.classList.add("shake")
               if (key == "CapsLock" || key == "Shift" || key == "Alt") {
                 letter.style.color = "white"
@@ -144,11 +149,9 @@ function type(event) {
               } else {
                 letter.style.color = "red"  
               }
-            }
           }
-        }
       } else { // others OS besides Linux
-        if (key == letter.innerHTML) {
+          if (key == letter.innerHTML) {
             letter.style.color = 'green'
             lettersTyped++
             typesPerSecond.increaseTypes()
