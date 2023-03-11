@@ -27,8 +27,6 @@ let rand = () => {
 }
 
 function createWord() {
-    
-
     // create a randomization to choose a random word in DB
     let randomNumberForDataBase = rand()
     let randomNumberForDataBase2 = rand()
@@ -165,6 +163,11 @@ function type(event) {
                actualLetter = -1
             }
             actualLetter++
+
+            // stats
+            lettersTyped_Stats++
+
+
         } else {
             wordsPlace.classList.add("shake")
             if (key == "CapsLock" || key == "Shift" || key == "Dead") {
@@ -186,7 +189,7 @@ function type(event) {
         actualLetter = 0
         lettersTyped = 0
         wordToHTML(actualWord2)
-        
+        wordsTyped_Stats++
 
         // reset the animation when word is loaded
         document.getElementById("strip1").remove()

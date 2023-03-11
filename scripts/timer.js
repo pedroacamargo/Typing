@@ -9,7 +9,7 @@ const countdown = document.getElementById("countdown")
 class Timer {
     constructor() {
         this.minutes = 0
-        this.seconds = 59
+        this.seconds = 10
         this.running = true
         this.countdown = 2 // The start game countdown (needs to be 1 value less than the value you want to put as a countdown)
     }
@@ -45,6 +45,10 @@ class Timer {
             }     
         } else {
             if (this.running) {
+                // stats
+                timePlayed_Stats++
+
+
                 this.seconds--
                 typesPerSecond.secondsPassed++
     
@@ -65,7 +69,8 @@ class Timer {
                             typesPerSecond.types += (60 - typesPerSecond.secondsPassed)
                         }
                         
-                        
+                        updateLocalStorage()
+                        resetActualStats()
     
                         typesPerSecond.doAverage()
                         typesPerSecond.printTPM()

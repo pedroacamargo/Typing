@@ -14,17 +14,18 @@
 
     <title>Typing game</title>
 </head>
-<body onkeydown="type(event); selectOption(event)" onload="createWord()">
+<body onkeydown="type(event); selectOption(event)" onload="createWord();loadStats()">
 
     <div class="settings-menu" id="startGameMenu">
-        <h2>Menu</h2>
+        <h2 style="cursor: default;">Menu</h2>
         <div class="option" id="opt1">
             <img class="move" id="img1" src="multimedia/arrowIconYellow.png" alt="arrow selector">
             <span onclick="selected = 1; selectOption(undefined,'ENTER')" href="main.html" class="start margin0">See stats</span>
             <div class="stats-container menustyle" id="container1">
-                <span class="stat">Letters typed: <em>0</em></span>
-                <span class="stat">Words typed: <em>0</em></span>
-                <span class="stat">Time played: <em>0</em></span>
+                <span class="stat">Letters typed: <em id="lT"></em></span>
+                <span class="stat">Words typed: <em id="wT"></em></span>
+                <span class="stat">Time played: <em id="tP"></em></span>
+                <span class="stat">Average TpM: <em id="tpmSt"></em></span>
                 <div style="margin-top: 5px; margin-left: 10px;">
                     <img class="move" id="img1" src="multimedia/arrowIconYellow.png" alt="arrow selector">
                     <span style="font-weight: bold; color: white;" href="main.html" class="start margin0">Close (Enter)</span>
@@ -42,7 +43,7 @@
                 </div>
             </div>
         </div>
-        <button onclick="started = true; startGame()" class="button">Iniciar jogo</button>
+        <button onclick="started = true; startGame()" class="button">Start Game</button>
     </div>
 
 
@@ -103,5 +104,6 @@
     <script src="scripts/timer.js"></script>
     <script src="scripts/TPM.js"></script>
     <script src="scripts/settingsRandomMenu.js"></script>
+    <script src="scripts/stats.js"></script>
 </body>
 </html>
