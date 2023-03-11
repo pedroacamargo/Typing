@@ -9,7 +9,7 @@ const countdown = document.getElementById("countdown")
 class Timer {
     constructor() {
         this.minutes = 0
-        this.seconds = 10
+        this.seconds = 30
         this.running = true
         this.countdown = 2 // The start game countdown (needs to be 1 value less than the value you want to put as a countdown)
     }
