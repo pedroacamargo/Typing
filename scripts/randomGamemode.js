@@ -111,7 +111,7 @@ function type(event) {
     // this variable will give the user log, telling the user OS
     let user = navigator.userAgent
     let letter = document.getElementById("letter" + actualLetter)
-
+    
     // code to fix the problem with accents in Linux OS
     if (user.search("Linux") !== -1) {
 

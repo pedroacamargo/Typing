@@ -18,10 +18,41 @@ body {
     width: 100vw;
 }
 
-#main-container {
-    width: 100%;
+.countdown {
+    width: 100vw;
     height: 100vh;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.countdown-number {
+    font-family: var(--font1);
+    font-size: 6em;
+    cursor: default;
+}
+
+.increase {
+    animation-name: increase;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes increase {
+    0% {
+        font-size: 6em;
+    }
+
+    100% {
+        font-size: 15rem;
+    }
+}
+
+#main-container {
+    display: none;
+    width: 100%;
+    height: 100vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -38,6 +69,7 @@ body {
 }
 
 .time {
+    display: none;
     color: white;
     font-family: var(--font1);
     font-size: 1.5em;

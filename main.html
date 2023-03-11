@@ -13,6 +13,13 @@
     <title>Typing game</title>
 </head>
 <body onkeydown="type(event)" onload="createWord()">
+    <!-- Start game countdown-->
+    <div class="countdown" id="countdown">
+        <span class="countdown-number increase" id="countdown-number">3</span>
+    </div>
+
+
+    <!-- Game itself -->
     <div class="time" id="timer">
         <span id="minutes" class="minutes"></span>
         :
