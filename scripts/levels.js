@@ -10,8 +10,9 @@ let options = 3
 
 
 console.log(title)
+
+// h1 header
 setInterval( () => {
-    
     // if the whole word is complete, pause
     if (complete == true) {
         if (wait == 0) {

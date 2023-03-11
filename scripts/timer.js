@@ -9,7 +9,7 @@ const countdown = document.getElementById("countdown")
 class Timer {
     constructor() {
         this.minutes = 0
-        this.seconds = 3
+        this.seconds = 59
         this.running = true
         this.countdown = 2 // The start game countdown (needs to be 1 value less than the value you want to put as a countdown)
     }
@@ -58,6 +58,7 @@ class Timer {
                     if (this.minutes == 0 && this.seconds == 0) {
                         
                         this.running = false
+                        started = false
     
                         // if the timer ends and the seconds passed was below 60,by default, will be added the amount of seconds left to make the final average.
                         if (typesPerSecond.secondsPassed < 60) {
@@ -90,8 +91,16 @@ class Timer {
 let timer = new Timer()
 timer.update()
 
-setInterval( () => {
-    timer.start()
-    timer.update()
-},1000)
+const settingsMenu = document.getElementById("startGameMenu")
+
+function startGame() {
+    settingsMenu.style.display = "none"
+    countdownNumber.classList.add("increase")
+    setInterval( () => {
+        timer.start()
+        timer.update()
+    },1000)
+}
+
+
 

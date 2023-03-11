@@ -10,12 +10,45 @@
 
     <link rel="stylesheet" href="styles/mediaQueries.css">
 
+    <link rel="stylesheet" href="styles/selectLevel.css">
+
     <title>Typing game</title>
 </head>
-<body onkeydown="type(event)" onload="createWord()">
+<body onkeydown="type(event); selectOption(event)" onload="createWord()">
+
+    <div class="settings-menu" id="startGameMenu">
+        <h2>Menu</h2>
+        <div class="option" id="opt1">
+            <img class="move" id="img1" src="multimedia/arrowIconYellow.png" alt="arrow selector">
+            <span onclick="selected = 1; selectOption(undefined,'ENTER')" href="main.html" class="start margin0">See stats</span>
+            <div class="stats-container menustyle" id="container1">
+                <span class="stat">Letters typed: <em>0</em></span>
+                <span class="stat">Words typed: <em>0</em></span>
+                <span class="stat">Time played: <em>0</em></span>
+                <div style="margin-top: 5px; margin-left: 10px;">
+                    <img class="move" id="img1" src="multimedia/arrowIconYellow.png" alt="arrow selector">
+                    <span style="font-weight: bold; color: white;" href="main.html" class="start margin0">Close (Enter)</span>
+                </div>
+            </div>
+        </div>
+        <div style="margin-bottom: 20px;" class="option" id="opt2">
+            <img class="move" id="img2" src="multimedia/arrowIconYellow.png" alt="arrow selector">
+            <span onclick="selected = 2; selectOption(undefined,'ENTER')" href="#" class="start margin0">Settings</span>
+            <div class="stats-container menustyle" id="container2">
+                <h2 style="font-size: 1em;">Soon...</h2>
+                <div style="margin-top: 5px; margin-left: 10px;">
+                    <img class="move" id="img1" src="multimedia/arrowIconYellow.png" alt="arrow selector">
+                    <span style="font-weight: bold; color: white;" href="main.html" class="start margin0">Close (Enter)</span>
+                </div>
+            </div>
+        </div>
+        <button onclick="started = true; startGame()" class="button">Iniciar jogo</button>
+    </div>
+
+
     <!-- Start game countdown-->
     <div class="countdown" id="countdown">
-        <span class="countdown-number increase" id="countdown-number">3</span>
+        <span class="countdown-number" id="countdown-number">3</span>
     </div>
 
 
@@ -69,5 +102,6 @@
     <script src="scripts/randomGamemode.js"></script>
     <script src="scripts/timer.js"></script>
     <script src="scripts/TPM.js"></script>
+    <script src="scripts/settingsRandomMenu.js"></script>
 </body>
 </html>

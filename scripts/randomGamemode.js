@@ -105,6 +105,11 @@ let linuxNextLetter
 let accents = "Áâíéáõã"
 // when type any keyword from ur keyboard
 function type(event) {
+
+  // if the game didn't have started, this function is disabled
+    if (started == false) {
+      return 0;
+    }
     
     let key = event.key
     wordsPlace.classList.remove("shake")
