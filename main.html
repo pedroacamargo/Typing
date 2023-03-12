@@ -26,7 +26,10 @@
 <body onkeydown="type(event); selectOption(event)" onload="createWord();loadStats()">
 
     <div class="settings-menu" id="startGameMenu">
+
         <h2 style="cursor: default;">Menu</h2>
+
+        <!-- stats -->
         <div class="option" id="opt1">
             <img class="move" id="img1" src="multimedia/arrowIconYellow.png" alt="arrow selector">
             <span onclick="selected = 1; selectOption(undefined,'ENTER')" href="main.html" class="start margin0">See stats</span>
@@ -36,22 +39,48 @@
                 <span class="stat">Time played: <em id="tP"></em></span>
                 <span class="stat">Average TpM: <em id="tpmSt"></em></span>
                 <div style="margin-top: 5px; margin-left: 10px;">
-                    <img class="move" id="img1" src="multimedia/arrowIconYellow.png" alt="arrow selector">
-                    <span style="font-weight: bold; color: white;" href="main.html" class="start margin0">Close (Enter)</span>
+                    
+                    <span style="font-weight: bold; color: white;" href="main.html" class="start margin0">Close (esc)</span>
                 </div>
             </div>
         </div>
+
+        <!-- Settings -->
         <div style="margin-bottom: 20px;" class="option" id="opt2">
             <img class="move" id="img2" src="multimedia/arrowIconYellow.png" alt="arrow selector">
             <span onclick="selected = 2; selectOption(undefined,'ENTER')" href="#" class="start margin0">Settings</span>
             <div class="stats-container menustyle" id="container2">
-                <h2 style="font-size: 1em;">Soon...</h2>
+
+                <div style="display: flex;">
+                    <img class="move" id="imgsets1" src="multimedia/arrowIconYellow.png" alt="arrow selector">
+
+                    <!-- Volume mixer -->
+                    <div onclick="selectOption(undefined,'ENTER')" class="start margin0" style="display: flex;">
+                        
+                        <div class="strip">
+                            <div class="circle" id="volumeMixer"></div>
+                        </div>
+                    
+                    </div>
+                </div>
+
+                <div style="margin-top: 10px; margin-bottom: 10px; display: flex;">
+                    <img class="move imgset" id="imgsets2" src="multimedia/arrowIconYellow.png" alt="arrow selector">
+                    <!-- Language -->
+                    <div onclick="selectOption(undefined,'ENTER')" href="#" class="start margin0">
+                        
+                        
+                    </div>
+                </div>
+
                 <div style="margin-top: 5px; margin-left: 10px;">
-                    <img class="move" id="img1" src="multimedia/arrowIconYellow.png" alt="arrow selector">
-                    <span style="font-weight: bold; color: white;" href="main.html" class="start margin0">Close (Enter)</span>
+                    
+                    <span style="font-weight: bold; color: white;" href="main.html" class="start margin0">Close (esc)</span>
                 </div>
             </div>
         </div>
+
+
         <button onclick="started = true; startGame()" class="button">Start Game</button>
     </div>
 

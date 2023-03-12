@@ -3,6 +3,12 @@ let selected = 1
 let opened = false
 let started = false // if the game started
 const buttonPlay = document.querySelector(".button")
+const soundMixer = document.getElementById("volumeMixer")
+let volume_px = 0
+let settings = false
+let settingsSelected = 1
+let settingsOptions = 2
+
 
 function selectOption(event,given = event) {
     let key
@@ -13,8 +19,47 @@ function selectOption(event,given = event) {
     }
     key = key.toUpperCase()
 
-    // if I want to optimize this, replace the numbers by the variable options
-    if (opened == false && (key == "ARROWUP" || key == "ARROWDOWN")) {
+    if (settings == true) { // IF THE SETTINGS OPTION IS OPENED
+        const actual = document.getElementById("imgsets" + settingsSelected)
+        if (key == "ARROWUP") { // NAVIGATE UP
+
+            if (settingsSelected > 1) {
+                actual.style.display = "none"
+                document.getElementById("imgsets" + (settingsSelected - 1)).style.display = "inline-block"
+                settingsSelected--
+            }
+        } else if (key == "ARROWDOWN") { // NAVIGATE DOWN
+
+            if (settingsSelected < settingsOptions) {
+                actual.style.display = "none"
+                document.getElementById("imgsets" + (settingsSelected + 1)).style.display = "inline-block"
+                settingsSelected++
+            }
+        } else if (key == "ESCAPE") { // CLOSE THE MENU
+
+            document.getElementById("container" + selected).style.display = "none"
+            document.getElementById("img" + selected).style.display = "block"
+            opened = false
+            if (selected == 2) {
+                settings = false
+            }
+        } else if (settingsSelected == 1) { // VOLUME MIXER
+
+            if (key == "ARROWRIGHT" && volume_px < 100) {
+                volume_px += 10;
+                soundMixer.style.left = volume_px + "px"
+            } else if (key == "ARROWLEFT" && volume_px > 0) {
+                volume_px -= 10;
+                soundMixer.style.left = volume_px + "px"
+            }
+
+
+
+        }
+
+
+
+    } else if (opened == false && (key == "ARROWUP" || key == "ARROWDOWN")) {
         if (selected == 1 && key == "ARROWUP") {
             selected = 1
         } else if (selected == options && key == "ARROWDOWN"){
@@ -58,11 +103,16 @@ function selectOption(event,given = event) {
             document.getElementById("container" + selected).style.display = "flex"
             document.getElementById("img" + selected).style.display = "none"
             opened = true
-        } else if (opened == true) {
-            document.getElementById("container" + selected).style.display = "none"
-            document.getElementById("img" + selected).style.display = "block"
-            opened = false
+            if (selected == 2) {
+                settings = true
+            }
+        } 
+    } else if (key == "ESCAPE") {
+        document.getElementById("container" + selected).style.display = "none"
+        document.getElementById("img" + selected).style.display = "block"
+        opened = false
+        if (selected == 2) {
+            settings = false
         }
     }
-    console.log(selected)
 }

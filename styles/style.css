@@ -77,9 +77,49 @@ h2 {
     font-size: .8em;
 }
 
-#img2 {
+#img2, #imgsets2, #imgsets3 {
     display: none;
 }
+
+/* Volume mixer */
+
+.strip {
+    width: 100px;
+    height: 4px;
+    background-color: white;
+    border-radius: 20px;
+    position: relative;
+    top: 3px;
+    margin-left: 65px;
+    margin-bottom: 10px;
+}
+
+.strip::before {
+    content: "Volume";
+    position: relative;
+    left: -60px;
+    top: -7px;
+    font-family: var(--font1);
+}
+
+.circle {
+    position: absolute;
+    top: -5px;
+    left: 0px;
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+
+
 
 .countdown {
     width: 100vw;
@@ -346,9 +386,11 @@ h2 {
 .button:hover {
     background-color: rgba(255, 255, 255, 0.76);
     color: black;
+    box-shadow: 0 0 20px white;
 }
 
 .hover-btn {
     background-color: rgba(255, 255, 255, 0.76);
     color: black;
+    box-shadow: 0 0 40px white;
 }
