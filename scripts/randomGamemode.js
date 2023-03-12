@@ -30,6 +30,12 @@ function createWord() {
     // create a randomization to choose a random word in DB
     let randomNumberForDataBase = rand()
     let randomNumberForDataBase2 = rand()
+    
+    // if the words are the same, reset the number
+    while (randomNumberForDataBase2 == randomNumberForDataBase) {
+      randomNumberForDataBase2 = 0
+      randomNumberForDataBase2 = rand()
+    }
 
     // just because length - 1 can give (-1) and doesn't exist a -1 index in array
     if (randomNumberForDataBase == -1) {
