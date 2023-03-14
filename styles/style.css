@@ -81,6 +81,10 @@ h2 {
     display: none;
 }
 
+
+
+
+
 /* Volume mixer */
 
 .strip {
@@ -105,7 +109,7 @@ h2 {
 .circle {
     position: absolute;
     top: -5px;
-    left: 0px;
+    left: 10px;
     width: 10px;
     height: 10px;
     background-color: black;
@@ -114,12 +118,32 @@ h2 {
 }
 
 
+/*  Languages   */
 
+.lang-container {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
 
+.stats-container div img.imglang {
+    transform: rotate(0deg);
+    margin-left: 10px;
+    margin-top: -2px;
+}
 
+.stats-container div span {
+    font-family: var(--font1);
+    margin-left: 10px;
+}
 
+#portuguese {
+    border: 2px solid red;
+}
 
-
+#english {
+    border: 3px solid green;
+}
 
 .countdown {
     width: 100vw;

@@ -1,8 +1,9 @@
 // array with the words that will be drawed
-let wordsDataBase = ["Brasil","Portugal","França","Corcunda","bruh","Boas","Constitucional","Abracadabra","Coração","Amor","Ursinho","Pikachu","Nerd","Corno","Conspiração","Minion","Incrível","Independentemente","Garrafa","Água","Teclado","Escrever","Caneta","Oitavo","Bom","Banco","Patifaria","Caso","Paralelepípedo","Espelho","Mouse","Biscoito","Uivo","Chapéuzão","Construção","Moniz","PC","Computador","Boi","Compatriota","Xavier","Zimbábwe","Celular",'Esdrúxulo', 'Xenofobia', 'Quimera', 'Paradigma', 'Idiossincrasia', 'Paradoxo', 'Efêmero', 'Dissecação', 'Antítese', 'Procrastinação', 'Hipotético', 'Ambiguidade', 'Subjetividade', 'Proeminente', 'Anacrônico', 'Meticuloso', 'Retórica', 'Ludibriar', 'Dissonância', 'Anátema', 'Arquipélago', 'Bambolê', 'Cavalaria', 'Devoção', 'Esfinge', 'Fascinante', 'Gastronomia', 'Hipopótamo', 'Ilusão', 'Jazz', 'Karatê', 'Lavanda', 'Macaco', 'Nebulosa', 'Oportunidade', 'Pérola', 'Queijo', 'Recanto', 'Sorvete', 'Tangerina', 'Ultrassom', 'Vitória', 'Xadrez', 'Zebra', 'Alegria', 'Barracão', 'Céu', 'Desafio', 'Empatia', 'Felicidade', 'Girassol', 'Horizonte', 'Inocência', 'Jardineiro', 'Kilômetro', 'Luminoso', 'Museu', 'Nuvem', 'Óculos', 'Piano', 'Quintal', 'Realidade', 'Saudade', 'Tranquilidade', 'Unicórnio', 'Vivacidade', 'Xícara', 'Zangado', 'Ancestral', 'Bandeira', 'Caleidoscópio', 'Democracia', 'Elegante', 'Folclore', 'Geração', 'Hemisfério', 'Imagem', 'Juramento', 'Kafkiano', 'Liberdade', 'Montanha', 'Nadar', 'Oscilação', 'Piscina', 'Qualidade', 'Relâmpago', 'Simplicidade', 'Temporada', 'União', 'Vagabundo', 'Xará', 'Zumbi', 'Aquarela', 'Bicicleta', 'Camaradagem', 'Dinamismo', 'Escalada', 'Fragrância', 'Gorila', 'Habitat', 'Ímpar', 'Juventude', 'Kombucha', 'Lagoa', 'Manifesto', 'Natureza', 'Organização', 'Paradigma', 'Queimada', 'Riqueza', 'Semente', 'Templo', 'Universidade', 'Varanda', 'Windsurf', 'Xenofobia', 'Ziguezague']
+let wordsDataBasePT = ["Brasil","Portugal","França","Corcunda","bruh","Boas","Constitucional","Abracadabra","Coração","Amor","Ursinho","Pikachu","Nerd","Corno","Conspiração","Minion","Incrível","Independentemente","Garrafa","Água","Teclado","Escrever","Caneta","Oitavo","Bom","Banco","Patifaria","Caso","Paralelepípedo","Espelho","Mouse","Biscoito","Uivo","Chapéuzão","Construção","Moniz","PC","Computador","Boi","Compatriota","Xavier","Zimbábwe","Celular",'Esdrúxulo', 'Xenofobia', 'Quimera', 'Paradigma', 'Idiossincrasia', 'Paradoxo', 'Efêmero', 'Dissecação', 'Antítese', 'Procrastinação', 'Hipotético', 'Ambiguidade', 'Subjetividade', 'Proeminente', 'Anacrônico', 'Meticuloso', 'Retórica', 'Ludibriar', 'Dissonância', 'Anátema', 'Arquipélago', 'Bambolê', 'Cavalaria', 'Devoção', 'Esfinge', 'Fascinante', 'Gastronomia', 'Hipopótamo', 'Ilusão', 'Jazz', 'Karatê', 'Lavanda', 'Macaco', 'Nebulosa', 'Oportunidade', 'Pérola', 'Queijo', 'Recanto', 'Sorvete', 'Tangerina', 'Ultrassom', 'Vitória', 'Xadrez', 'Zebra', 'Alegria', 'Barracão', 'Céu', 'Desafio', 'Empatia', 'Felicidade', 'Girassol', 'Horizonte', 'Inocência', 'Jardineiro', 'Kilômetro', 'Luminoso', 'Museu', 'Nuvem', 'Óculos', 'Piano', 'Quintal', 'Realidade', 'Saudade', 'Tranquilidade', 'Unicórnio', 'Vivacidade', 'Xícara', 'Zangado', 'Ancestral', 'Bandeira', 'Caleidoscópio', 'Democracia', 'Elegante', 'Folclore', 'Geração', 'Hemisfério', 'Imagem', 'Juramento', 'Kafkiano', 'Liberdade', 'Montanha', 'Nadar', 'Oscilação', 'Piscina', 'Qualidade', 'Relâmpago', 'Simplicidade', 'Temporada', 'União', 'Vagabundo', 'Xará', 'Zumbi', 'Aquarela', 'Bicicleta', 'Camaradagem', 'Dinamismo', 'Escalada', 'Fragrância', 'Gorila', 'Habitat', 'Ímpar', 'Juventude', 'Kombucha', 'Lagoa', 'Manifesto', 'Natureza', 'Organização', 'Paradigma', 'Queimada', 'Riqueza', 'Semente', 'Templo', 'Universidade', 'Varanda', 'Windsurf', 'Xenofobia', 'Ziguezague']
+
+let wordsDataBaseEN = ["Abstemious", "Acquiesce", "Anomalistic", "Barricade", "Belligerent", "Boisterous", "Cacophony", "Capricious", "Castigate", "Circumlocution", "Compendious", "Conscientious", "Conundrum", "Corpulent", "Covetous", "Deleterious", "Demagogue", "Didactic", "Discombobulate", "Disparate", "Ebullient", "Egregious", "Endemic", "Equanimity", "Evanescent", "Exacerbate", "Exculpate", "Expedite", "Fastidious", "Feckless", "Flagrant", "Fractious", "Garrulous", "Gregarious", "Hackneyed", "Histrionic", "Idiosyncrasy", "Ignominious", "Illicit", "Impecunious", "Imperturbable", "Impetuous", "Incontrovertible", "Indolent", "Inexorable", "Inimical", "Intransigent", "Inveterate", "Irascible", "Jettison", "Juxtapose", "Lachrymose", "Laconic", "Largesse", "Loquacious", "Lugubrious", "Magnanimous", "Malfeasance", "Malevolent", "Mellifluous", "Mendacious", "Mercurial", "Misanthrope", "Mitigate", "Nefarious", "Nonplussed", "Obdurate", "Obfuscate", "Obsequious", "Onus", "Opulent", "Ostensible", "Panacea", "Paradigm", "Parsimony", "Penchant", "Perfunctory", "Perspicacious", "Pertinacious", "Pervasive", "Petulant", "Platitude", "Plethora", "Polemic", "Portent", "Predilection", "Propensity", "Prosaic", "Pugnacious", "Querulous", "Quixotic", "Rancor", "Recalcitrant", "Recondite", "Refulgent", "Remuneration", "Repudiate", "Resilient", "Sagacious", "Salubrious", "Sanguine", "Scurrilous", "Spurious", "Staid", "Strident", "Superfluous", "Surreptitious", "Sycophant", "Taciturn", "Tantamount", "Tenuous", "Timorous", "Truculent", "Ubiquitous", "Umbrage", "Unctuous", "Usurp", "Vacuous", "Venerable", "Vicissitude", "Vilify", "Vituperative", "Wheedle", "Wistful", "Zealous"]
 
 const wordCompleted = new Audio("../multimedia/wordCompleted.mp3")
-
 const nextWordPlace = document.getElementById("nextWord")
 const stripsContainer = document.getElementById("strip-container")
 const wordsPlace = document.getElementById("words")
@@ -11,7 +12,8 @@ const strip1 = document.getElementById("strip1")
 const strip2 = document.getElementById("strip2")
 const strip3 = document.getElementById("strip3")
 const strip4 = document.getElementById("strip4")
-
+let wordsDataBase
+let lang = "en-us"
 let wordValue = word.innerHTML
 let letters = -1
 let lettersTyped = 0
@@ -19,8 +21,12 @@ let actualLetter = 0
 let first = true // if it's the first word displaying
 let nextWord
 let actualWord
-let sound = true
 
+if (lang == "pt-br") {
+  wordsDataBase = wordsDataBasePT
+} else if (lang == "en-us") {
+  wordsDataBase = wordsDataBaseEN
+}
 
 let rand = () => {
     return Math.floor(Math.random() * (wordsDataBase.length - 1))

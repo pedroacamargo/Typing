@@ -23,7 +23,8 @@
 -->
 
 
-<body onkeydown="type(event); selectOption(event)" onload="createWord();loadStats()">
+<body onkeydown="type(event); selectOption(event)" onload="createWord(); loadStats(); loadMusic()">    
+
 
     <div class="settings-menu" id="startGameMenu">
 
@@ -32,15 +33,15 @@
         <!-- stats -->
         <div class="option" id="opt1">
             <img class="move" id="img1" src="multimedia/arrowIconYellow.png" alt="arrow selector">
-            <span onclick="selected = 1; selectOption(undefined,'ENTER')" href="main.html" class="start margin0">See stats</span>
+            <span id="optset1" onclick="selected = 1; selectOption(undefined,'ENTER')" href="main.html" class="start margin0">See stats</span>
             <div class="stats-container menustyle" id="container1">
-                <span class="stat">Letters typed: <em id="lT"></em></span>
-                <span class="stat">Words typed: <em id="wT"></em></span>
-                <span class="stat">Time played: <em id="tP"></em></span>
-                <span class="stat">Average TpM: <em id="tpmSt"></em></span>
+                <span id="lTspan" class="stat">Letters typed: <em id="lT"></em></span>
+                <span id="wTspan" class="stat">Words typed: <em id="wT"></em></span>
+                <span id="tPspan" class="stat">Time played: <em id="tP"></em></span>
+                <span id="tpmspan" class="stat">Average TpM: <em id="tpmSt"></em></span>
                 <div style="margin-top: 5px; margin-left: 10px;">
                     
-                    <span style="font-weight: bold; color: white;" href="main.html" class="start margin0">Close (esc)</span>
+                    <span style="font-weight: bold; color: white;" href="main.html" class="start margin0 close">Close (esc)</span>
                 </div>
             </div>
         </div>
@@ -67,10 +68,10 @@
                 <div style="margin-top: 10px; margin-bottom: 10px; display: flex;">
                     <img class="move imgset" id="imgsets2" src="multimedia/arrowIconYellow.png" alt="arrow selector">
                     <!-- Language -->
-                    <div onclick="selectOption(undefined,'ENTER')" href="#" class="start margin0">
+                    <span>Language:</span>
+                    <img id="portuguese" style="width: 25px;" class="imglang" src="multimedia/bandeiraBrasil.png" alt="">
+                    <img id="english" style="width: 25px;" class="imglang" src="multimedia/EUAFlag.jpeg" alt="">
                         
-                        
-                    </div>
                 </div>
 
                 <div style="margin-top: 5px; margin-left: 10px;">
@@ -138,10 +139,10 @@
         </div>
     </div>
 
-    <script src="scripts/randomGamemode.js"></script>
     <script src="scripts/timer.js"></script>
     <script src="scripts/TPM.js"></script>
-    <script src="scripts/settingsRandomMenu.js"></script>
     <script src="scripts/stats.js"></script>
+    <script src="scripts/settingsRandomMenu.js"></script>
+    <script src="scripts/randomGamemode.js"></script>
 </body>
 </html>

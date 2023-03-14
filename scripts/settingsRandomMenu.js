@@ -2,13 +2,23 @@ let options = 3
 let selected = 1
 let opened = false
 let started = false // if the game started
+const portuguese = document.getElementById("portuguese")
+const english = document.getElementById("english")
 const buttonPlay = document.querySelector(".button")
 const soundMixer = document.getElementById("volumeMixer")
-let volume_px = 0
+let music = new Audio("multimedia/backgroundMusic.mp3")
+let volume_px = 10
 let settings = false
 let settingsSelected = 1
 let settingsOptions = 2
+let sound = true
 
+
+
+let loadMusic = () => {
+    music.play()
+    music.volume = volume_px/100
+}
 
 function selectOption(event,given = event) {
     let key
@@ -47,14 +57,30 @@ function selectOption(event,given = event) {
 
             if (key == "ARROWRIGHT" && volume_px < 100) {
                 volume_px += 10;
+                music.volume = volume_px/100
                 soundMixer.style.left = volume_px + "px"
             } else if (key == "ARROWLEFT" && volume_px > 0) {
                 volume_px -= 10;
+                music.volume = volume_px/100
                 soundMixer.style.left = volume_px + "px"
             }
+        } else if (settingsSelected == 2) {
 
-
-
+            if (key == "ARROWRIGHT") {
+                lang = "en-us"
+                english.style.border = "3px solid green"
+                portuguese.style.border = "2px solid red"
+                wordsDataBase = wordsDataBaseEN
+                createWord()
+                wordToHTML(wordsDataBase[rand()])
+            } else if (key == "ARROWLEFT") {
+                lang = "pt-br"
+                portuguese.style.border = "2px solid green"
+                english.style.border = "2px solid red"
+                wordsDataBase = wordsDataBasePT
+                createWord()
+                wordToHTML(wordsDataBase[rand()])
+            }
         }
 
 
