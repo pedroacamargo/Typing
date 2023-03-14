@@ -20,6 +20,10 @@ let loadMusic = () => {
     music.volume = volume_px/100
 }
 
+// each 190 secs, the music will replay :)
+setInterval(loadMusic(), 190000);
+
+// function to select the options at main menu
 function selectOption(event,given = event) {
     let key
     if (given == event) {
